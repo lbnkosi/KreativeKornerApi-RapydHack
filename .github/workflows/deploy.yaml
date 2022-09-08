@@ -43,5 +43,5 @@ jobs:
           application_name: kreativekornerapi
           environment_name: Kreativekornerapi-env
           version_label: ${{github.SHA}}
-          region: us-east-1
+          region: eu-west-2
           deployment_package: explravenue-0.0.1-SNAPSHOT.jar
