@@ -1,0 +1,31 @@
+{
+  "first_name": "John",
+  "last_name": "Doe",
+  "phone_number": "+27670083283",
+  "email": "nkosilebogang95@gmail.com",
+  "id": "ewallet_e830ddd87e860eaf8fac4f0a54d1c31f",
+  "ewallet": "ewallet_e830ddd87e860eaf8fac4f0a54d1c31f",
+  "url": "/v1/ewallets/ewallet_e830ddd87e860eaf8fac4f0a54d1c31f/contacts",
+  "contact_id": "cont_2e52e28bb6f19dca5c1b20a7f6fa3ad8",
+  "address_id": "address_442e9794421afb7d364a9427ca3c17af",
+  "status": "ACT",
+  "country": "US",
+  "verification_status": "not verified",
+  "type": "person",
+  "ewallet_reference_id": "John-Doe-02152020-2020-292383781",
+  "business_id": "busi_b8a8b8c322f732fe3d5a5e42827bf0a9",
+  "business_name": "HenryCompany",
+  "accounts": [
+    {
+      "id": "21e26e24-d67b-4775-949d-77b493f6e88d",
+      "currency": "USD",
+      "alias": "USD",
+      "balance": 1000.0,
+      "received_balance": 0.0,
+      "on_hold_balance": 0.0,
+      "reserve_balance": 0.0,
+      "limits": null,
+      "limit": null
+    }
+  ]
+}

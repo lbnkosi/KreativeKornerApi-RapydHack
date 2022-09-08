@@ -1,0 +1,54 @@
+{
+  "first_name": "Henry Company",
+  "ewallet_reference_id": "Test-888-888",
+  "metadata": {
+    "merchant_defined": true
+  },
+  "type": "company",
+  "contact": {
+    "phone_number": "+14155588799",
+    "email": "sanboxtest@rapyd.net",
+    "first_name": "Mary",
+    "last_name": "Chen",
+    "mothers_name": "Mei Hui",
+    "contact_type": "business",
+    "address": {
+      "name": "Henry Company",
+      "line_1": "888 Some Street",
+      "city": "Anytown",
+      "state": "NY",
+      "country": "US",
+      "zip": "12345",
+      "phone_number": "+14155588799"
+    },
+    "identification_type": "PA",
+    "identification_number": "1234567890",
+    "date_of_birth": "11/22/2000",
+    "country": "US",
+    "nationality": "NL",
+    "metadata": {
+      "merchant_defined": true
+    },
+    "business_details": {
+      "entity_type": "company",
+      "name": "Henry Company",
+      "registration_number": "4234567779",
+      "industry_category": "company",
+      "industry_sub_category": "home services",
+      "address": {
+        "name": "Henry Company",
+        "line_1": "888 Some Street",
+        "line_2": "Suite 1200",
+        "city": "Anytown",
+        "state": "NY",
+        "country": "US",
+        "nationality": "IT",
+        "zip": "10101",
+        "phone_number": "+14155588799",
+        "metadata": {
+          "merchant_defined": true
+        }
+      }
+    }
+  }
+}
