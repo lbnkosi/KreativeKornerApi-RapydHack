@@ -17,8 +17,8 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.client.RestTemplate
 import java.lang.reflect.Type
 
-@RestController
 @RequestMapping("/rapyd/api/payment")
+@RestController
 object PaymentsController {
 
     private const val PAYMENT_PATH = "/v1/payments"

@@ -26,8 +26,8 @@ import org.springframework.web.bind.annotation.*
 import org.springframework.web.client.RestTemplate
 import java.lang.reflect.Type
 
-@RestController
 @RequestMapping("/rapyd/api/wallet")
+@RestController
 object WalletController {
 
     private const val WALLET_PATH = "/v1/user"

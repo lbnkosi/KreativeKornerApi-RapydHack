@@ -4,8 +4,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class ExplravenueApplication
+class KreativeKornerApplication
 
 fun main(args: Array<String>) {
-	runApplication<ExplravenueApplication>(*args)
+	runApplication<KreativeKornerApplication>(*args)
 }
