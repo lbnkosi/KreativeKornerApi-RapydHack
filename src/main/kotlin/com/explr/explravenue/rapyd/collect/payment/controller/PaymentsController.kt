@@ -33,12 +33,12 @@ object PaymentsController {
     }
 
     @PostMapping(value = ["/bank"])
-    fun createBankPayment(@RequestBody request: CreateBankPaymentRequest): String {
+    fun createBankPayment(@RequestBody request: CreateBankPaymentRequest): CreateBankPaymentResponse {
         val restTemplate = RestTemplate()
         val entity = HttpEntity(Gson().toJson(request).replace(" ", ""), HeaderGenerator.generateRapydApiHeaders(Constants.POST_METHOD, PAYMENT_PATH, request))
         val response = restTemplate.exchange(Constants.BASE_URL + PAYMENT_PATH, HttpMethod.POST, entity, String::class.java)
         val type: Type = object : TypeToken<CreateBankPaymentResponse>() {}.type
-        return "Hello"
+        return Gson().fromJson(response.body, type)
     }
 
 }
