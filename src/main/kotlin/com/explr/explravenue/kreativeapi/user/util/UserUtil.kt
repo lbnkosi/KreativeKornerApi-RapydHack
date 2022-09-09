@@ -4,27 +4,22 @@ import com.explr.explravenue.kreativeapi.user.models.CreateUserRequest
 import com.explr.explravenue.rapyd.collect.customer.create_customer.request.CreateCustomerRequest
 import com.explr.explravenue.rapyd.collect.customer.create_customer.request.PaymentMethod
 import com.explr.explravenue.rapyd.collect.customer.create_customer.response.CreateCustomerResponse
-import com.explr.explravenue.rapyd.wallet.create_personal.request.Address
-import com.explr.explravenue.rapyd.wallet.create_personal.request.Contact
-import com.explr.explravenue.rapyd.wallet.create_personal.request.CreatePersonalWalletRequest
-import com.explr.explravenue.rapyd.wallet.create_personal.response.CreatePersonalWalletResponse
+import com.explr.explravenue.rapyd.wallet.create_company.request.*
+import com.explr.explravenue.rapyd.wallet.create_company.response.CreateCompanyWalletResponse
 
 object UserUtil {
 
-    fun generateWalletRequest(request: CreateUserRequest): CreatePersonalWalletRequest {
-        val walletRequest = CreatePersonalWalletRequest()
-        walletRequest.first_name = request.name
-        walletRequest.last_name = request.surname
-        walletRequest.email = request.email
+    fun generateWalletRequest(request: CreateUserRequest): CreateCompanyWalletRequest {
+        val walletRequest = CreateCompanyWalletRequest()
+        walletRequest.first_name = request.name + " " + request.surname
         walletRequest.ewallet_reference_id = request.email
-        walletRequest.phone_number = request.phone
-        walletRequest.type = "person"
+        walletRequest.type = "company"
         val walletContact = Contact()
         walletContact.phone_number = request.phone
         walletContact.email = request.email
         walletContact.first_name = request.name
         walletContact.last_name = request.surname
-        walletContact.contact_type = "personal"
+        walletContact.contact_type = "business"
         walletContact.identification_type = "PA"
         walletContact.identification_number = request.phone.replace("+", "")
         walletContact.date_of_birth = "11/22/1999"
@@ -39,11 +34,28 @@ object UserUtil {
         walletAddress.zip = "12345"
         walletAddress.phone_number = request.phone
         walletContact.address = walletAddress
+        val businessDetails = BusinessDetails()
+        businessDetails.entity_type = "company"
+        businessDetails.name = request.name + " " + request.surname
+        businessDetails.registration_number = request.phone
+        businessDetails.industry_category = "company"
+        businessDetails.industry_sub_category = "social media"
+        val companyAddress = AddressX()
+        companyAddress.name = request.name +" "+ request.surname
+        companyAddress.line_1 = "123 Main Street"
+        companyAddress.city = "Anytown"
+        companyAddress.state = "NY"
+        companyAddress.country = request.country
+        companyAddress.zip = "12345"
+        companyAddress.phone_number = request.phone
+        companyAddress.nationality = request.country
+        businessDetails.address = companyAddress
+        walletContact.business_details = businessDetails
         walletRequest.contact = walletContact
         return walletRequest
     }
 
-    fun generateCustomerRequest(request: CreateUserRequest, response: CreatePersonalWalletResponse): CreateCustomerRequest {
+    fun generateCustomerRequest(request: CreateUserRequest, response: CreateCompanyWalletResponse): CreateCustomerRequest {
         val customerRequest = CreateCustomerRequest()
         customerRequest.name = request.name + " " + request.surname
         customerRequest.business_vat_id = request.phone
@@ -61,7 +73,7 @@ object UserUtil {
         return customerRequest
     }
 
-    fun generateFirebaseRequest(request: CreateUserRequest, walletResponse: CreatePersonalWalletResponse, customerResponse: CreateCustomerResponse): CreateUserRequest {
+    fun generateFirebaseRequest(request: CreateUserRequest, walletResponse: CreateCompanyWalletResponse, customerResponse: CreateCustomerResponse): CreateUserRequest {
         request.ref_id = walletResponse.data.ewallet_reference_id
         request.wallet_id = walletResponse.data.id
         request.customer_id = customerResponse.data.id
