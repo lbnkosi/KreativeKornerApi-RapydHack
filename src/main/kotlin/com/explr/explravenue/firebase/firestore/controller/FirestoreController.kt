@@ -6,8 +6,12 @@ import org.springframework.stereotype.Service
 @Service
 object FirestoreController {
 
-    fun create(collection: String, any: Any) {
-        FirestoreClient.getFirestore().collection(collection).document().set(any)
+    fun create(uid: String? = "", collection: String, any: Any) {
+        if (uid.isNullOrEmpty()) {
+            FirestoreClient.getFirestore().collection(collection).document().set(any)
+        } else {
+            FirestoreClient.getFirestore().collection(collection).document(uid).set(any)
+        }
     }
 
     fun create(collectionL1: String, documentId: String, collectionL2: String, any: Any) {

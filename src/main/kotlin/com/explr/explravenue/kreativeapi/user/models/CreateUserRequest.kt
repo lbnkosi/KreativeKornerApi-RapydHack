@@ -12,5 +12,6 @@ data class CreateUserRequest(
     var wallet_amount: String? = "0",
     var wallet_id: String? = "",
     var customer_id: String? = "",
-    var payment_method: String? = ""
+    var payment_method: String? = "",
+    var uid: String? = ""
 )
