@@ -20,7 +20,7 @@ import org.springframework.web.client.HttpClientErrorException
 
 @RestController
 @RequestMapping("/explore/api/van")
-object VanController {
+object UpStreamVanController {
 
     @PostMapping(value = ["/issuevan"])
     fun issueVan(@RequestBody accessPoint: AccessPointRequest): ResponseEntity<Any> {

@@ -3,7 +3,7 @@ package com.explr.explravenue.kreativeapi.accesspoint
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_USER
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_VAN
 import com.explr.explravenue.kreativeapi.user.controller.UserController
-import com.explr.explravenue.kreativeapi.van.controller.VanController
+import com.explr.explravenue.kreativeapi.van.controller.UpStreamVanController
 import com.google.gson.Gson
 import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
@@ -28,7 +28,7 @@ object AccessPointController {
     private fun route(request: AccessPointRequest): Any {
         return when (request.route) {
             CREATE_USER -> UserController.createUser(request)
-            CREATE_VAN -> VanController.issueVan(request)
+            CREATE_VAN -> UpStreamVanController.issueVan(request)
             else -> "Unknown action"
         }
     }
