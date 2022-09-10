@@ -22,7 +22,7 @@ import org.springframework.web.client.HttpClientErrorException
 @RequestMapping("/explore/api/van")
 object VanController {
 
-    @PostMapping(value = ["/createvan"])
+    @PostMapping(value = ["/issuevan"])
     fun issueVan(@RequestBody accessPoint: AccessPointRequest): ResponseEntity<Any> {
         val request = configureRequest(accessPoint)
         return try {
