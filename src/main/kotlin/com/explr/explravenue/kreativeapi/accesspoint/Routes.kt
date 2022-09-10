@@ -7,4 +7,6 @@ object Routes {
     const val BANK_PAYMENT = "bank_payment"
 
     const val CREATE_USER = "create_user"
+
+    const val CREATE_VAN = "create_van"
 }

@@ -49,7 +49,7 @@ object UserController {
             wallet_id = accessPoint.wallet_id
             customer_id = accessPoint.customer_id
             payment_method = accessPoint.payment_method
-            uid = accessPoint.uid
+            uid = accessPoint.email
         }
         return request
     }

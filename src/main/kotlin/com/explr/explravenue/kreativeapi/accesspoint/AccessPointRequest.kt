@@ -21,6 +21,8 @@ data class AccessPointRequest (
     var wallet_id: String? = "",
     var customer_id: String? = "",
     var payment_method: String? = "",
-    var uid: String? = ""
+    var uid: String? = "",
+
+
 
 )
