@@ -16,10 +16,6 @@ object AccessPointController {
 
     @PostMapping(value = ["/post"])
     fun acceptAccessPoint(@RequestBody request: AccessPointRequest): ResponseEntity<Any> {
-        //val responseHeaders = HttpHeaders()
-        //responseHeaders.set("Access-Control-Allow-Origin", "*")
-
-
         val response = route(request)
         val debug = Gson().toJson(response)
         println("DEBUG_PRINT - $debug")
