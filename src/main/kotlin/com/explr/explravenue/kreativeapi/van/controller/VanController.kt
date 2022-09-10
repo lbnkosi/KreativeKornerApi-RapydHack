@@ -29,7 +29,7 @@ object VanController {
             val van = VanController.issueVan(request)
             val firebaseVan = configureFirebaseRequest(van)
             FirestoreController.create(accessPoint.user_type, accessPoint.email, "vans", firebaseVan)
-            ResponseEntity.ok("Van Success")
+            ResponseEntity.ok("Success")
         } catch (e: HttpClientErrorException) {
             ResponseEntity.badRequest().body(e.message)
         }
