@@ -9,20 +9,20 @@ import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
-@CrossOrigin(origins = ["https://kreativekorner.flutterflow.app", "https://explravenue.com/kreative/api/accesspoint/post", "https://explravenue.com"], maxAge = 3600)
+//@CrossOrigin(origins = ["https://kreativekorner.flutterflow.app", "https://explravenue.com/kreative/api/accesspoint/post", "https://explravenue.com"], maxAge = 3600)
 @RestController
 @RequestMapping("/kreative/api/accesspoint")
 object AccessPointController {
 
     @PostMapping(value = ["/post"])
     fun acceptAccessPoint(@RequestBody request: AccessPointRequest): ResponseEntity<Any> {
-        val responseHeaders = HttpHeaders()
-        responseHeaders["Access-Control-Allow-Origin"] = "*"
+        //val responseHeaders = HttpHeaders()
+        //responseHeaders["Access-Control-Allow-Origin"] = "*"
 
         val response = route(request)
         val debug = Gson().toJson(response)
         println("DEBUG_PRINT - $debug")
-        return ResponseEntity.ok().headers(responseHeaders).body(response)
+        return ResponseEntity.ok(response)//.headers(responseHeaders).body(response)
     }
 
     private fun route(request: AccessPointRequest): Any {
