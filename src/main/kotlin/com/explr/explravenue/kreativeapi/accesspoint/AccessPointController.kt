@@ -7,11 +7,9 @@ import com.explr.explravenue.kreativeapi.van.controller.VanController
 import com.google.gson.Gson
 import org.springframework.http.HttpHeaders
 import org.springframework.http.ResponseEntity
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
+@CrossOrigin(origins = ["https://kreativekorner.flutterflow.app"], maxAge = 3600)
 @RestController
 @RequestMapping("/kreative/api/accesspoint")
 object AccessPointController {
