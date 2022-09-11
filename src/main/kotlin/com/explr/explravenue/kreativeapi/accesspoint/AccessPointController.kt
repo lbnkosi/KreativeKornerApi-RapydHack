@@ -1,7 +1,9 @@
 package com.explr.explravenue.kreativeapi.accesspoint
 
+import com.explr.explravenue.kreativeapi.accesspoint.Routes.ADD_CARD
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_USER
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_VAN
+import com.explr.explravenue.kreativeapi.addcard.controller.UpStreamCardController
 import com.explr.explravenue.kreativeapi.user.controller.UserController
 import com.explr.explravenue.kreativeapi.van.controller.UpStreamVanController
 import com.google.gson.Gson
@@ -29,6 +31,7 @@ object AccessPointController {
         return when (request.route) {
             CREATE_USER -> UserController.createUser(request)
             CREATE_VAN -> UpStreamVanController.issueVan(request)
+            ADD_CARD -> UpStreamCardController.addCard(request)
             else -> "Unknown action"
         }
     }

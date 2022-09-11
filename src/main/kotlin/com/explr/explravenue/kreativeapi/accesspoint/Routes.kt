@@ -9,4 +9,6 @@ object Routes {
     const val CREATE_USER = "create_user"
 
     const val CREATE_VAN = "create_van"
+
+    const val ADD_CARD = "add_card"
 }

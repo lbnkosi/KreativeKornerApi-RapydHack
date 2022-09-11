@@ -23,6 +23,11 @@ data class AccessPointRequest (
     var payment_method: String? = "",
     var uid: String? = "",
 
-
-
+    var capture: Boolean? = true,
+    var type: String? = "",
+    var card_number: String? = "",
+    var expiration_month: String? = "",
+    var expiration_year: String? = "",
+    var card_holder: String? = "",
+    var cvv: String? = ""
 )
