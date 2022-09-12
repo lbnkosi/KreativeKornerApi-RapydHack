@@ -11,4 +11,8 @@ object Routes {
     const val CREATE_VAN = "create_van"
 
     const val ADD_CARD = "add_card"
+
+    const val CREATE_BENEF = "create_benef"
+
+    const val CREATE_PAYOUT = "create_payout"
 }

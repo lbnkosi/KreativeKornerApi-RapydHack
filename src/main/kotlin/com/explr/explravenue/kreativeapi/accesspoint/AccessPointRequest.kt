@@ -29,5 +29,11 @@ data class AccessPointRequest (
     var expiration_month: String? = "",
     var expiration_year: String? = "",
     var card_holder: String? = "",
-    var cvv: String? = ""
+    var cvv: String? = "",
+
+    var identification_value: String? = "",
+    var account_number: String? = "",
+    var beneficiary_id: String? = "",
+    var beneficiary_country: String? = "",
+    var payout_currency: String? = "",
 )
