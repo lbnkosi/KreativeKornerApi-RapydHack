@@ -3,7 +3,7 @@ package com.explr.explravenue.rapyd.collect.subscription.create_subscription.res
 data class Plan(
     var id: String = "",
     var aggregate_usage: String = "",
-    var amount: Int = 0,
+    var amount: Double = 0.0,
     var billing_scheme: String = "",
     var created_at: Int = 0,
     var currency: String = "",

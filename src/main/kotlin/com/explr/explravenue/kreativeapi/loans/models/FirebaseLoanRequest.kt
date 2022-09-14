@@ -1,6 +1,6 @@
-package com.explr.explravenue.kreativeapi.cashadvance.models
+package com.explr.explravenue.kreativeapi.loans.models
 
-data class FirebaseCashAdvanceRequest(
+data class FirebaseLoanRequest(
 
     var id: String? = "",
     var amount: String? = "",

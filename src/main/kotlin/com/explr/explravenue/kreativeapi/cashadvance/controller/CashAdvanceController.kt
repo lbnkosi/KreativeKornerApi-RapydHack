@@ -56,6 +56,8 @@ object CashAdvanceController {
 
         request.months = "1"
         request.monthly_payment = subscription.data.subscription_items.data[0].plan.amount.toString()
+
+        request.plan_id = accessPoint.plan_id
         return request
     }
 
