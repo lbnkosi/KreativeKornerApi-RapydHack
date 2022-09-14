@@ -1,12 +1,14 @@
 package com.explr.explravenue.kreativeapi.accesspoint
 
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.ADD_CARD
+import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_ADVANCE
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_BENEF
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_PAYOUT
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_USER
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_VAN
 import com.explr.explravenue.kreativeapi.addcard.controller.UpStreamCardController
 import com.explr.explravenue.kreativeapi.beneficiary.controller.UpStreamBeneficiaryController
+import com.explr.explravenue.kreativeapi.cashadvance.controller.CashAdvanceController
 import com.explr.explravenue.kreativeapi.payout.UpStreamPayoutController
 import com.explr.explravenue.kreativeapi.user.controller.UserController
 import com.explr.explravenue.kreativeapi.van.controller.UpStreamVanController
@@ -35,6 +37,7 @@ object AccessPointController {
             ADD_CARD -> UpStreamCardController.addCard(request)
             CREATE_BENEF -> UpStreamBeneficiaryController.createBeneficiary(request)
             CREATE_PAYOUT -> UpStreamPayoutController.createPayout(request)
+            CREATE_ADVANCE -> CashAdvanceController.createAdvance(request)
             else -> "Unknown action"
         }
     }

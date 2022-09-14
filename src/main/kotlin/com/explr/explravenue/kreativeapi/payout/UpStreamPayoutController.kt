@@ -32,7 +32,7 @@ object UpStreamPayoutController {
         }
     }
 
-    private fun configureRequest(accessPoint: AccessPointRequest): CreateSinglePayoutRequest {
+    fun configureRequest(accessPoint: AccessPointRequest): CreateSinglePayoutRequest {
         val request = CreateSinglePayoutRequest()
         request.beneficiary = accessPoint.beneficiary_id
         request.beneficiary_country = accessPoint.beneficiary_country
@@ -56,7 +56,7 @@ object UpStreamPayoutController {
         val request = FirebaseSinglePayoutRequest()
         val response = payoutResponse.data
         request.id = response.id
-        request.amount = response.id
+        request.amount = response.amount.toString()
         request.currency = response.payout_currency
         request.payout_currency = response.payout_currency
         request.sender_amount = response.sender_amount.toString()

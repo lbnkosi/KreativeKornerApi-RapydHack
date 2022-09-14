@@ -9,7 +9,6 @@ data class Plan(
     var currency: String = "",
     var interval: String = "",
     var interval_count: Int = 0,
-    var metadata: MetadataX = MetadataX(),
     var product: String = "",
     var nickname: String = "",
     var tiers: List<Any> = listOf(),

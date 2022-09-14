@@ -36,4 +36,7 @@ data class AccessPointRequest (
     var beneficiary_id: String? = "",
     var beneficiary_country: String? = "",
     var payout_currency: String? = "",
+
+    var plan_id: String? = ""
+
 )

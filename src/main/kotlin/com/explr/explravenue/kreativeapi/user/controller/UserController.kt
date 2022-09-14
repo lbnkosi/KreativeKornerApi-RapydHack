@@ -26,15 +26,19 @@ object UserController {
         val request = configureRequest(accessPoint)
         return try {
             val wallet = WalletController.createCompanyWallet(UserUtil.generateWalletRequest(request))
+            val savingsWallet = WalletController.createCompanyWallet(UserUtil.generateWalletRequest(request))
             val customer = CustomerController.createCustomer(UserUtil.generateCustomerRequest(request, wallet))
             FirestoreController.create(request.uid, request.user_type, UserUtil.generateFirebaseRequest(request, wallet, customer))
             ResponseEntity.ok("Success")
+
+            //Create second wallet
+            //Add mywallets collection
         } catch (e: HttpClientErrorException) {
             ResponseEntity.badRequest().body(e.message)
         }
     }
 
-    fun configureRequest(accessPoint: AccessPointRequest): CreateUserRequest {
+    private fun configureRequest(accessPoint: AccessPointRequest): CreateUserRequest {
         val request = CreateUserRequest()
         request.apply {
             name = accessPoint.name

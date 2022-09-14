@@ -12,6 +12,7 @@ import com.explr.explravenue.rapyd.wallet.delete_wallet.response.DeleteWalletRes
 import com.explr.explravenue.rapyd.wallet.disable_enable.request.EnableDisableWalletRequest
 import com.explr.explravenue.rapyd.wallet.disable_enable.response.EnableDisableWalletResponse
 import com.explr.explravenue.rapyd.wallet.get_single_wallet.response.GetSingleWalletResponse
+import com.explr.explravenue.rapyd.wallet.transactions.response.GetTransactionsResponse
 import com.explr.explravenue.rapyd.wallet.transfer.request.WalletTransferRequest
 import com.explr.explravenue.rapyd.wallet.transfer.response.WalletTransferResponse
 import com.explr.explravenue.rapyd.wallet.update_copmany_wallet.request.UpdateCompanyWalletRequest
@@ -35,6 +36,7 @@ object WalletController {
     private const val DISABLE_WALLET_PATH = "/v1/user/disable"
     private const val ACCOUNT_TRANSFER_PATH = "/v1/account/transfer"
     private const val WALLET_CONTACT_PATH = "/v1/ewallets"
+    private const val WALLET_TRANSACTIONS = "/v1/user"
 
     @PostMapping(value = ["/createpersonalwallet"])
     fun createPersonalWallet(@RequestBody wallet: CreatePersonalWalletRequest): CreatePersonalWalletResponse {
@@ -79,6 +81,15 @@ object WalletController {
         val entity = HttpEntity(null, HeaderGenerator.generateRapydApiHeaders(Constants.GET_METHOD, "${WALLET_PATH}/$walletId", null))
         val response = restTemplate.exchange("${Constants.BASE_URL}${WALLET_PATH}/$walletId", HttpMethod.GET, entity, String::class.java)
         val type: Type = object : TypeToken<GetSingleWalletResponse>() {}.type
+        return Gson().fromJson(response.body, type)
+    }
+
+    @GetMapping(value = ["/getwallettransactions"])
+    fun getWalletTransactions(@RequestParam(name = "walletId") walletId: String?): GetTransactionsResponse? {
+        val restTemplate = RestTemplate()
+        val entity = HttpEntity(null, HeaderGenerator.generateRapydApiHeaders(Constants.GET_METHOD, "${WALLET_TRANSACTIONS}/$walletId/transactions", null))
+        val response = restTemplate.exchange("${Constants.BASE_URL}${WALLET_TRANSACTIONS}/$walletId/transactions", HttpMethod.GET, entity, String::class.java)
+        val type: Type = object : TypeToken<GetTransactionsResponse>() {}.type
         return Gson().fromJson(response.body, type)
     }
 
