@@ -42,6 +42,17 @@ data class AccessPointRequest (
     var months: String? = "",
     var interest: String? = "",
     var total_repayment: String? = "",
-    var product_id: String? = ""
+    var product_id: String? = "",
+
+    var ipi_id: String? = "",
+    var max_payout: String? = "",
+    var monthly_payment: String? = "",
+    var interval: String? = "",
+
+    var has_payout: Boolean = false,
+    var payout_id: String? = "",
+    var sender_id: String? = "",
+    var collect_card_number: String? = "",
+    var collect_card_id: String? = "",
 
 )

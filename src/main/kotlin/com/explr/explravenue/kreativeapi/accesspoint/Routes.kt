@@ -19,4 +19,6 @@ object Routes {
     const val CREATE_ADVANCE = "create_advance"
 
     const val CREATE_LOAN = "create_loan"
+
+    const val CREATE_INCOME_INSURANCE = "create_income_insurance"
 }
