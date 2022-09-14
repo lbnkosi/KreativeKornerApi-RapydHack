@@ -40,6 +40,8 @@ data class AccessPointRequest (
     var plan_id: String? = "",
 
     var months: String? = "",
-    var interest: String? = ""
+    var interest: String? = "",
+    var total_repayment: String? = "",
+    var product_id: String? = ""
 
 )

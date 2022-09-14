@@ -40,7 +40,7 @@ object LoanController {
         val request = FirebaseLoanRequest()
         request.id = (System.currentTimeMillis() / 1000L).toString()
         request.amount = subscription.data.subscription_items.data[0].plan.amount.toString()
-        request.amount_payable = request.amount
+        request.amount_payable = accessPoint.total_repayment
         request.interest_percentage = accessPoint.interest
         request.invoice_id = ""
         request.sender_id = payoutResponse.data.sender.id
@@ -59,6 +59,8 @@ object LoanController {
         request.monthly_payment = subscription.data.subscription_items.data[0].plan.amount.toString()
 
         request.plan_id = accessPoint.plan_id
+        request.product_id = accessPoint.product_id
+
         return request
     }
 

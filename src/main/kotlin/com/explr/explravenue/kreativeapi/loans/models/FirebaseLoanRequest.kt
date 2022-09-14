@@ -25,6 +25,7 @@ data class FirebaseLoanRequest(
     var months: String? = "",
     var monthly_payment: String? = "",
 
-    var plan_id: String? = ""
+    var plan_id: String? = "",
+    var product_id: String? = ""
 
 )
