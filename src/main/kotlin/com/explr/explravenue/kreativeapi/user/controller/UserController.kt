@@ -28,6 +28,7 @@ object UserController {
             val wallet = WalletController.createCompanyWallet(UserUtil.generateWalletRequest(request))
             val savingsWallet = WalletController.createCompanyWallet(UserUtil.generateWalletRequest(request))
             val customer = CustomerController.createCustomer(UserUtil.generateCustomerRequest(request, wallet))
+            //Create chat user as well
             FirestoreController.create(request.uid, request.user_type, UserUtil.generateFirebaseRequest(request, wallet, customer))
             ResponseEntity.ok("Success")
 

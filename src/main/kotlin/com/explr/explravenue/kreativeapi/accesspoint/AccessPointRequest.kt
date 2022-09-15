@@ -55,4 +55,6 @@ data class AccessPointRequest (
     var collect_card_number: String? = "",
     var collect_card_id: String? = "",
 
+    var currently_viewing: String? = ""
+
 )

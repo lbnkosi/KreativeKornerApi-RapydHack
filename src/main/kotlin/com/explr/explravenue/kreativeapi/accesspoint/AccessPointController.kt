@@ -8,9 +8,11 @@ import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_LOAN
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_PAYOUT
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_USER
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_VAN
+import com.explr.explravenue.kreativeapi.accesspoint.Routes.UPDATE_CHAT
 import com.explr.explravenue.kreativeapi.addcard.controller.UpStreamCardController
 import com.explr.explravenue.kreativeapi.beneficiary.controller.UpStreamBeneficiaryController
 import com.explr.explravenue.kreativeapi.cashadvance.controller.CashAdvanceController
+import com.explr.explravenue.kreativeapi.chat.controller.FirebaseChatController
 import com.explr.explravenue.kreativeapi.insurance.controller.IncomeProtectionController
 import com.explr.explravenue.kreativeapi.loans.controller.LoanController
 import com.explr.explravenue.kreativeapi.payout.UpStreamPayoutController
@@ -44,6 +46,7 @@ object AccessPointController {
             CREATE_ADVANCE -> CashAdvanceController.createAdvance(request)
             CREATE_LOAN -> LoanController.createCustomerLoan(request)
             CREATE_INCOME_INSURANCE -> IncomeProtectionController.createIncomeProtection(request)
+            UPDATE_CHAT -> FirebaseChatController.updateChat(request)
             else -> "Unknown action"
         }
     }

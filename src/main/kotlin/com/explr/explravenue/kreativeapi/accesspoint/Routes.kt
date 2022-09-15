@@ -21,4 +21,6 @@ object Routes {
     const val CREATE_LOAN = "create_loan"
 
     const val CREATE_INCOME_INSURANCE = "create_income_insurance"
+
+    const val UPDATE_CHAT = "update_chat"
 }
