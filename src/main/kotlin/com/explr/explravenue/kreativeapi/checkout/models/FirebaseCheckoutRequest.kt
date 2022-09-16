@@ -4,7 +4,6 @@ package com.explr.explravenue.kreativeapi.checkout.models
 data class FirebaseCheckoutRequest(
     var checkout_id: String? = "",
     var checkout_url: String? = "",
-    var local_checkout_url: String? = "",
     var price: String? = "",
     var product_id: String? = "",
     var collection: String? = "",
