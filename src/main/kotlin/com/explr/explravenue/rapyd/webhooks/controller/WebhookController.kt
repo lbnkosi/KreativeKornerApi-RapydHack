@@ -19,7 +19,10 @@ class WebhookController {
 
     @PostMapping
     fun notification(@RequestBody body: WebhookResponse) {
-        //EmailServiceImpl().sendSimpleMessage("rapydhack@gmail.com", "Webhook", Gson().toJson(body))
+        if (body.type == "PAYMENT_COMPLETED") {
+
+        }
+
         sendmail(Gson().toJson(body))
     }
 

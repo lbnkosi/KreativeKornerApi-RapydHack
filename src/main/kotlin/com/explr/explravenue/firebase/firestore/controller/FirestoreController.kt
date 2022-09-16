@@ -18,6 +18,15 @@ object FirestoreController {
         FirestoreClient.getFirestore().collection(collectionL1).document(documentId).collection(collectionL2).document().set(any)
     }
 
+    fun create(uid: String? = "", collectionL1: String, documentId: String, collectionL2: String, any: Any) {
+        if (uid.isNullOrEmpty()) {
+            FirestoreClient.getFirestore().collection(collectionL1).document(documentId).collection(collectionL2).document().set(any)
+        } else {
+            FirestoreClient.getFirestore().collection(collectionL1).document(documentId).collection(collectionL2).document(uid).set(any)
+        }
+        FirestoreClient.getFirestore().collection(collectionL1).document(documentId).collection(collectionL2).document().set(any)
+    }
+
     fun create(collectionL1: String, documentIdL1: String, collectionL2: String, documentIdL2: String, collectionL3: String, any: Any) {
         FirestoreClient.getFirestore().collection(collectionL1).document(documentIdL1).collection(collectionL2).document(documentIdL2).collection(collectionL3).document().set(any)
     }

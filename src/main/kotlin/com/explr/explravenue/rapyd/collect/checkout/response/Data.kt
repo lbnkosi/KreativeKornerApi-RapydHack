@@ -20,6 +20,7 @@ data class Data(
     var currency: String = "",
     var amount: Double = 0.0,
     var payment: Payment = Payment(),
+    var metadata: Metadata = Metadata(),
     var payment_method_type: Any = Any(),
     var payment_method_type_categories: Any = Any(),
     var payment_method_types_include: List<String> = listOf(),
