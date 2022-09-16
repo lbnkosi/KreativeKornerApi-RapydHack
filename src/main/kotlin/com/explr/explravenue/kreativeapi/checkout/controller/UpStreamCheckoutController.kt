@@ -56,19 +56,19 @@ object UpStreamCheckoutController {
         request.merchant_reference_id = accessPoint.ref_id
         request.cardholder_preferred_currency = true
         request.language = "en"
-        request.expiration = 1695658124
+        request.expiration = 1671984524
         request.payment_method_types_include = paymentMethods()
-        val metadata = Metadata()
-        metadata.merchant_defined = true
-        metadata.email = accessPoint.email
-        metadata.user_type = accessPoint.user_type
-        metadata.reference = accessPoint.ref_id
-        metadata.product_id = accessPoint.product_id
-        request.metadata = metadata
+        val metadata2 = Metadata()
+        metadata2.merchant_defined = true
+        metadata2.email = accessPoint.email
+        metadata2.user_type = accessPoint.user_type
+        metadata2.reference = accessPoint.ref_id
+        metadata2.product_id = accessPoint.product_id
+        request.metadata = metadata2
         return request
     }
 
-    fun paymentMethods(): ArrayList<String> {
+    private fun paymentMethods(): ArrayList<String> {
         val paymentMethods: ArrayList<String> = arrayListOf()
         paymentMethods.add("us_debit_discover_card")
         paymentMethods.add("us_debit_visa_card")
