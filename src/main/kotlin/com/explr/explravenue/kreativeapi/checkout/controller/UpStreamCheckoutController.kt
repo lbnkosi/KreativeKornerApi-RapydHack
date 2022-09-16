@@ -53,7 +53,7 @@ object UpStreamCheckoutController {
         request.country = accessPoint.country
         request.currency = accessPoint.currency
         request.customer = accessPoint.customer_id
-        request.merchant_reference_id = (System.currentTimeMillis() / 1000L).toString()
+        request.merchant_reference_id = accessPoint.ref_id
         request.cardholder_preferred_currency = true
         request.language = "en"
         request.expiration = 1695658124
