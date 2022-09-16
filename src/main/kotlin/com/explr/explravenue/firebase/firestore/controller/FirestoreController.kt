@@ -24,7 +24,7 @@ object FirestoreController {
         } else {
             FirestoreClient.getFirestore().collection(collectionL1).document(documentId).collection(collectionL2).document(uid).set(any)
         }
-        FirestoreClient.getFirestore().collection(collectionL1).document(documentId).collection(collectionL2).document().set(any)
+        //FirestoreClient.getFirestore().collection(collectionL1).document(documentId).collection(collectionL2).document().set(any)
     }
 
     fun create(collectionL1: String, documentIdL1: String, collectionL2: String, documentIdL2: String, collectionL3: String, any: Any) {

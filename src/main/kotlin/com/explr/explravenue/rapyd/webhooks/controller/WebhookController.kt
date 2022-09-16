@@ -1,6 +1,5 @@
 package com.explr.explravenue.rapyd.webhooks.controller
 
-import com.explr.explravenue.rapyd.util.EmailServiceImpl
 import com.explr.explravenue.rapyd.webhooks.webhookmodel.response.WebhookResponse
 import com.google.gson.Gson
 import org.springframework.web.bind.annotation.PostMapping
@@ -11,7 +10,6 @@ import java.io.IOException
 import java.util.*
 import javax.mail.*
 import javax.mail.internet.*
-
 
 @RestController
 @RequestMapping("/api/v1/webhook")
@@ -48,9 +46,6 @@ class WebhookController {
         messageBodyPart.setContent(body, "text/html")
         val multipart: Multipart = MimeMultipart()
         multipart.addBodyPart(messageBodyPart)
-        //val attachPart = MimeBodyPart()
-        //attachPart.attachFile("/var/tmp/image19.png")
-        //multipart.addBodyPart(attachPart)
         msg.setContent(multipart)
         Transport.send(msg)
     }
