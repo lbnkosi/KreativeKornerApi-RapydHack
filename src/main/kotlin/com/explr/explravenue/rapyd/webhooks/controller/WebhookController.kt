@@ -1,12 +1,17 @@
 package com.explr.explravenue.rapyd.webhooks.controller
 
+import com.explr.explravenue.firebase.firestore.controller.FirestoreController
+import com.explr.explravenue.rapyd.issuing.card.create_card.response.CreateCardResponse
+import com.explr.explravenue.rapyd.webhooks.models.payment_succeeded.PaymentSucceededWebhook
 import com.explr.explravenue.rapyd.webhooks.webhookmodel.response.WebhookResponse
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.io.IOException
+import java.lang.reflect.Type
 import java.util.*
 import javax.mail.*
 import javax.mail.internet.*
@@ -17,11 +22,14 @@ class WebhookController {
 
     @PostMapping
     fun notification(@RequestBody body: WebhookResponse) {
-        if (body.type == "PAYMENT_COMPLETED") {
-
+        if (body.type == "PAYMENT_SUCCEEDED") {
+            val response = Gson().toJson(body)
+            val type: Type = object : TypeToken<PaymentSucceededWebhook>() {}.type
+            val payment: PaymentSucceededWebhook =  Gson().fromJson(response, type)
+            val metadata = payment.data.metadata
+            FirestoreController.updatePaid(metadata.email, metadata.user_type, metadata.reference, "checkout")
         }
-
-        sendmail(Gson().toJson(body))
+        //sendmail(Gson().toJson(body))
     }
 
     @Throws(AddressException::class, MessagingException::class, IOException::class)

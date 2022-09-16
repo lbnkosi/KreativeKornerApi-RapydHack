@@ -7,7 +7,7 @@ data class PaymentMethodData(
     var image: String = "",
     var last4: String = "",
     var category: String = "",
-    var metadata: MetadataX = MetadataX(),
+    //var metadata: MetadataX = MetadataX(),
     var acs_check: String = "",
     var cvv_check: String = "",
     var bin_details: BinDetails = BinDetails(),
