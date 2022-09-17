@@ -36,7 +36,7 @@ object UpStreamCheckoutController {
         request.checkout_url = checkoutResponse.data.redirect_url
         request.price = accessPoint.amount
         request.product_id = accessPoint.product_id
-        request.checkout_type = "apartment_bookings"
+        request.checkout_type = accessPoint.checkout_type
         request.reference = checkoutResponse.data.metadata.reference
         request.merchant_reference_id = checkoutResponse.data.payment.merchant_reference_id
         request.user_type = accessPoint.user_type
