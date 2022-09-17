@@ -57,4 +57,6 @@ data class AccessPointRequest (
 
     var currently_viewing: String? = "",
 
+    var collection_name: String? = ""
+
 )

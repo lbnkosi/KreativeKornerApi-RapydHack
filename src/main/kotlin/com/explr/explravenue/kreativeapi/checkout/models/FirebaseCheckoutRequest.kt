@@ -6,7 +6,7 @@ data class FirebaseCheckoutRequest(
     var checkout_url: String? = "",
     var price: String? = "",
     var product_id: String? = "",
-    var collection: String? = "",
+    var collection_name: String? = "",
     var checkout_type: String? = "",
     var reference: String? = "",
     var merchant_reference_id: String? = "",
