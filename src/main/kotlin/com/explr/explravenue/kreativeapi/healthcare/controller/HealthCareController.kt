@@ -33,7 +33,7 @@ object HealthCareController {
 
     private fun configureFirebaseRequest(accessPoint: AccessPointRequest, subscription: CreateSubscriptionResponse): FirebaseHealthcareRequest {
         val request = FirebaseHealthcareRequest()
-        request.id = (System.currentTimeMillis() / 1000L).toString()
+        request.id = (System.currentTimeMillis() /1000L).toString()
         request.max_payout = accessPoint.max_payout
         request.monthly_payment = accessPoint.monthly_payment
         request.interval = accessPoint.interval
