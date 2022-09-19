@@ -4,6 +4,7 @@ import com.explr.explravenue.kreativeapi.accesspoint.Routes.ADD_CARD
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_ADVANCE
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_BENEF
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_CHECKOUT
+import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_HEALTHCARE
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_INCOME_INSURANCE
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_LOAN
 import com.explr.explravenue.kreativeapi.accesspoint.Routes.CREATE_PAYOUT
@@ -15,6 +16,7 @@ import com.explr.explravenue.kreativeapi.beneficiary.controller.UpStreamBenefici
 import com.explr.explravenue.kreativeapi.cashadvance.controller.CashAdvanceController
 import com.explr.explravenue.kreativeapi.chat.controller.FirebaseChatController
 import com.explr.explravenue.kreativeapi.checkout.controller.UpStreamCheckoutController
+import com.explr.explravenue.kreativeapi.healthcare.controller.HealthCareController
 import com.explr.explravenue.kreativeapi.insurance.controller.IncomeProtectionController
 import com.explr.explravenue.kreativeapi.loans.controller.LoanController
 import com.explr.explravenue.kreativeapi.payout.UpStreamPayoutController
@@ -50,6 +52,7 @@ object AccessPointController {
             CREATE_INCOME_INSURANCE -> IncomeProtectionController.createIncomeProtection(request)
             UPDATE_CHAT -> FirebaseChatController.updateChat(request)
             CREATE_CHECKOUT -> UpStreamCheckoutController.createCheckout(request)
+            CREATE_HEALTHCARE -> HealthCareController.createHealthCare(request)
             else -> "Unknown action"
         }
     }

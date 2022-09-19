@@ -25,4 +25,6 @@ object Routes {
     const val UPDATE_CHAT = "update_chat"
 
     const val CREATE_CHECKOUT = "create_checkout"
+
+    const val CREATE_HEALTHCARE = "create_healthcare"
 }
